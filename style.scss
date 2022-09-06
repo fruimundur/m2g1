@@ -1,3 +1,4 @@
+//////////* COLORS *//////////
 
 /* SASS map holding the different color variables */
 $colors: (
@@ -11,6 +12,20 @@ $colors: (
 @function color($color-name) {
     @return map-get($colors, $color-name)
 }    
+
+
+//////////* RESPONSIVENESS *//////////
+
+/* Variable created for the Mixin below */
+$desktop: 840px;
+
+
+/* Mixin created to simplify the process of making the website responsive by using media query */
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}   
 
 
 body {
@@ -38,58 +53,90 @@ header {
 
 main {
 
-    h1 {
-      font-size: 55px;
-      text-align: center;
-      padding: 85px 0 0 0;
-      font-family: sans-serif;
+    @include desktop {
+        display: grid;
+        grid-template-columns: 50% auto;
+        grid-template-areas:
+            "calltoaction signup "
     }
 
-    p {
-      text-align: center;
+    section#calltoaction {
+
+        @include desktop {
+            grid-area: calltoaction; 
+            height: fit-content; 
+            align-self: center; 
+            margin: 1em 0 0 8em; 
+        } 
+
+        h1 {
+          font-size: 55px;
+          text-align: center;
+          padding: 50px 0 0  0;
+          font-family: sans-serif;
+        }
+
+        p {
+          text-align: center;
+        }  
+
+        #first-paragraph {
+            font-size: 32px;
+            font-style: italic;
+            padding: 0 0 50px 0;
+        }
+
+        img {
+            max-width: 90%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 100px;
+            border: 5px solid color(accent);
+        }
+
     }
 
-    #first-paragraph {
-        font-size: 32px;
-        font-style: italic;
-        padding: 0 0 50px 0;
+
+    section#signup {
+
+        @include desktop {
+            grid-area: signup; 
+            text-align: left;
+            margin: 20em 8em 0 4em;  
+        } 
+
+        #second-paragraph {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 0 0 0;
+        }
+
+        input {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 40px;
+            width: 550px;
+            height: 60px;
+            font-size: 30px;
+        }
+
+
+        button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 150px;
+            background-color: color(accent);
+            width: 550px;
+            height: 60px;
+            font-size: 30px;
+        }
     }
 
-    #second-paragraph {
-        font-size: 32px;
-        font-weight: bold;
-        padding: 90px 0 0 0;
-    }
-
-    img {
-        max-width: 40%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border: 5px solid color(accent);
-    }
-
-    input {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 267px;
-        height: 29px;
-        font-size: 24px;
-    }
-
-
-    button {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 11px;
-        margin-bottom: 150px;
-        background-color: color(accent);
-        width: 272px;
-        height: 35px;
-        font-size: 24px;
-    } 
 }
 
 

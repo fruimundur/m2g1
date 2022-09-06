@@ -1,5 +1,7 @@
 /* SASS map holding the different color variables */
 /* Function created to simplify  the process of specifying colors */
+/* Variable created for the Mixin below */
+/* Mixin created to simplify the process of making the website responsive by using media query */
 body {
   margin: 0;
   background-color: #e2e6fb;
@@ -19,50 +21,75 @@ header h2 {
   text-transform: uppercase;
 }
 
-main h1 {
+@media (min-width: 840px) {
+  main {
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-areas: "calltoaction signup ";
+  }
+}
+@media (min-width: 840px) {
+  main section#calltoaction {
+    grid-area: calltoaction;
+    height: fit-content;
+    align-self: center;
+    margin: 1em 0 0 8em;
+  }
+}
+main section#calltoaction h1 {
   font-size: 55px;
   text-align: center;
-  padding: 85px 0 0 0;
+  padding: 50px 0 0 0;
   font-family: sans-serif;
 }
-main p {
+main section#calltoaction p {
   text-align: center;
 }
-main #first-paragraph {
+main section#calltoaction #first-paragraph {
   font-size: 32px;
   font-style: italic;
   padding: 0 0 50px 0;
 }
-main #second-paragraph {
-  font-size: 32px;
-  font-weight: bold;
-  padding: 90px 0 0 0;
-}
-main img {
-  max-width: 40%;
+main section#calltoaction img {
+  max-width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
   border: 5px solid #FFCC00;
 }
-main input {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 267px;
-  height: 29px;
-  font-size: 24px;
+@media (min-width: 840px) {
+  main section#signup {
+    grid-area: signup;
+    text-align: left;
+    margin: 20em 8em 0 4em;
+  }
 }
-main button {
+main section#signup #second-paragraph {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px 0 0 0;
+}
+main section#signup input {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 11px;
+  margin-top: 40px;
+  width: 550px;
+  height: 60px;
+  font-size: 30px;
+}
+main section#signup button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
   margin-bottom: 150px;
   background-color: #FFCC00;
-  width: 272px;
-  height: 35px;
-  font-size: 24px;
+  width: 550px;
+  height: 60px;
+  font-size: 30px;
 }
 
 footer {
