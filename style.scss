@@ -8,7 +8,7 @@ $colors: (
 ); 
 
 
-/* Function created to simplify  the process of specifying colors */
+/* Function created to simplify the process of specifying colors */
 @function color($color-name) {
     @return map-get($colors, $color-name)
 }    
